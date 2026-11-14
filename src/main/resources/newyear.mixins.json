@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "com.example.newyear.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BiomeMixin",
+    "TreeConfigurationMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
