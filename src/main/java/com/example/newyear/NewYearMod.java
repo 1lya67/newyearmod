@@ -16,12 +16,14 @@ public class NewYearMod implements ModInitializer {
     public static final String MOD_ID = "newyear";
 
     /** Радиус вокруг игрока, где ложится снег. */
-    private static final int RADIUS = 48;
-    /** Сколько случайных клеток за тик проверяется на каждого игрока. */
-    private static final int ATTEMPTS_PER_PLAYER = 8;
+    private static final int RADIUS = 40;
+    /** Сколько случайных клеток за тик проверяется на каждого игрока (больше = быстрее). */
+    private static final int ATTEMPTS_PER_PLAYER = 64;
 
     @Override
     public void onInitialize() {
+        NewYearBlocks.register();
+
         ServerTickEvents.END_WORLD_TICK.register(world -> {
             if (world.dimension() != Level.OVERWORLD) return;
             keepSnowing(world);
@@ -65,7 +67,6 @@ public class NewYearMod implements ModInitializer {
                 if (!snow.canSurvive(world, top)) continue;
 
                 if (tallPlant) {
-                    // убираем верхнюю половинку высокой травы
                     world.setBlock(top.above(), Blocks.AIR.defaultBlockState(), 2);
                 }
                 world.setBlock(top, snow, 3);

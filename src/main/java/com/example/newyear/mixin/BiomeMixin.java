@@ -1,5 +1,8 @@
 package com.example.newyear.mixin;
 
+import com.example.newyear.NewYearBiomes;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,5 +25,24 @@ public abstract class BiomeMixin {
     @Inject(method = "coldEnoughToSnow", at = @At("HEAD"), cancellable = true)
     private void newyear$alwaysCold(CallbackInfoReturnable<Boolean> cir) {
         cir.setReturnValue(true);
+    }
+
+    /** Вода не замерзает в пустыне, саванне и болотах (и в реках рядом с ними). */
+    @Inject(method = "shouldFreeze(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;Z)Z",
+            at = @At("HEAD"), cancellable = true, require = 0)
+    private void newyear$keepWaterLiquid3(LevelReader level, BlockPos pos, boolean mustBeAtEdge,
+                                          CallbackInfoReturnable<Boolean> cir) {
+        if (NewYearBiomes.isWarmRegion(level, pos)) {
+            cir.setReturnValue(false);
+        }
+    }
+
+    @Inject(method = "shouldFreeze(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z",
+            at = @At("HEAD"), cancellable = true, require = 0)
+    private void newyear$keepWaterLiquid2(LevelReader level, BlockPos pos,
+                                          CallbackInfoReturnable<Boolean> cir) {
+        if (NewYearBiomes.isWarmRegion(level, pos)) {
+            cir.setReturnValue(false);
+        }
     }
 }
