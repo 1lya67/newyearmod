@@ -30,6 +30,36 @@
       {
         "model": "newyear:block/spruce_leaves_b",
         "y": 270
+      },
+      {
+        "model": "newyear:block/spruce_leaves_c"
+      },
+      {
+        "model": "newyear:block/spruce_leaves_c",
+        "y": 90
+      },
+      {
+        "model": "newyear:block/spruce_leaves_c",
+        "y": 180
+      },
+      {
+        "model": "newyear:block/spruce_leaves_c",
+        "y": 270
+      },
+      {
+        "model": "newyear:block/spruce_leaves_d"
+      },
+      {
+        "model": "newyear:block/spruce_leaves_d",
+        "y": 90
+      },
+      {
+        "model": "newyear:block/spruce_leaves_d",
+        "y": 180
+      },
+      {
+        "model": "newyear:block/spruce_leaves_d",
+        "y": 270
       }
     ]
   }
