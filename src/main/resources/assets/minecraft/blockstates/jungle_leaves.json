@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "newyear:block/jungle_leaves_a"
+      },
+      {
+        "model": "newyear:block/jungle_leaves_a",
+        "y": 90
+      },
+      {
+        "model": "newyear:block/jungle_leaves_a",
+        "y": 180
+      },
+      {
+        "model": "newyear:block/jungle_leaves_a",
+        "y": 270
+      },
+      {
+        "model": "newyear:block/jungle_leaves_b"
+      },
+      {
+        "model": "newyear:block/jungle_leaves_b",
+        "y": 90
+      },
+      {
+        "model": "newyear:block/jungle_leaves_b",
+        "y": 180
+      },
+      {
+        "model": "newyear:block/jungle_leaves_b",
+        "y": 270
+      }
+    ]
+  }
+}

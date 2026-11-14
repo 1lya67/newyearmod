@@ -3,8 +3,7 @@
   "package": "com.example.newyear.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "BiomeMixin",
-    "TreeConfigurationMixin"
+    "BiomeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

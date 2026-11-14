@@ -3,7 +3,7 @@
   "id": "newyear",
   "version": "${version}",
   "name": "New Year Winter",
-  "description": "Вечная зима: снегопад везде и новогодние гирлянды на всех деревьях.",
+  "description": "Вечная зима: снегопад, красивое небо и новогодняя листва с шариками.",
   "authors": ["You"],
   "license": "MIT",
   "environment": "*",
