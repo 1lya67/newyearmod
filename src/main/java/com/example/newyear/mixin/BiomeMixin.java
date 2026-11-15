@@ -1,6 +1,7 @@
 package com.example.newyear.mixin;
 
 import com.example.newyear.NewYearBiomes;
+import com.example.newyear.SnowCooldown;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.biome.Biome;
@@ -42,6 +43,15 @@ public abstract class BiomeMixin {
     private void newyear$keepWaterLiquid2(LevelReader level, BlockPos pos,
                                           CallbackInfoReturnable<Boolean> cir) {
         if (NewYearBiomes.isWarmRegion(level, pos)) {
+            cir.setReturnValue(false);
+        }
+    }
+
+    /** Ванильный снегопад тоже не должен закрывать место, где игрок только что сломал снег. */
+    @Inject(method = "shouldSnow(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z",
+            at = @At("HEAD"), cancellable = true, require = 0)
+    private void newyear$snowCooldown(LevelReader level, BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+        if (SnowCooldown.isCooling(pos)) {
             cir.setReturnValue(false);
         }
     }
