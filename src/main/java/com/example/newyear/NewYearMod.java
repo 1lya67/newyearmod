@@ -30,7 +30,8 @@ public class NewYearMod implements ModInitializer {
     private static final Set<String> COVERABLE = Set.of(
             "short_grass", "tall_grass", "fern", "large_fern", "dead_bush",
             "short_dry_grass", "tall_dry_grass", "bush", "firefly_bush",
-            "pink_petals", "wildflowers", "leaf_litter");
+            "pink_petals", "wildflowers", "leaf_litter",
+            "sunflower", "lilac", "rose_bush", "peony", "pitcher_plant");
 
     @Override
     public void onInitialize() {
@@ -60,7 +61,7 @@ public class NewYearMod implements ModInitializer {
     }
 
     private static boolean isCoverable(BlockState state) {
-        if (state.is(BlockTags.SMALL_FLOWERS) || state.is(BlockTags.TALL_FLOWERS)) return true;
+        if (state.is(BlockTags.SMALL_FLOWERS)) return true;
         var id = BuiltInRegistries.BLOCK.getKey(state.getBlock());
         return "minecraft".equals(id.getNamespace()) && COVERABLE.contains(id.getPath());
     }
